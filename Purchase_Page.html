@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Fusion Firewood-Purchase_Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" 
+    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#area').select2({
+                placeholder: '--Select--'
+            });
+
+            $('#area').on('change', function() {
+                updateDeliveryDetails();
+            });
+        });
+
+        function updateDeliveryDetails() {
+            var area = $('#area').val();
+            // Your JavaScript function to handle the selected delivery area
+            console.log("Selected Delivery Area: " + area);
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar"> 
+                <div class="logo">
+                    <a href="home_page.html"><img src="e:\Fusion Firewood\Fiverr Premium Kit\Fiverr Premium Kit\PNG Logo Files\Transparent Logo.png"
+                    width="300px" height="100px"></a>  
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="home_page.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <a href="Cart.html"><img src="e:\Fusion Firewood\cart.png" width="50px" height="50px"></a>
+                <img src="e:\Fusion Firewood\images\hamburger menu.png" class="menu-icon" onclick="menutoggle()">               
+            </div>
+        </div>
+    </div>
+    <!-- cart details-->
+    <div class="purchase-container">
+        <div class="purchased-items">
+            <table>
+                <tr>
+                    <th class="th1">Product</th>
+                    <th>Quantity</th>
+                    <th class="th2">Details</th>
+                </tr>
+            </table>
+
+            <div id="purchase-details">
+                <div id="cart-items-container"></div>
+                <!--cart items details-->
+                    <!--<div class="cart-item cart-column">
+                        <img class="cart-item-image" src="${item.imageSrc}" width="100" height="100">
+                        <span class="cart-item-title">${item.title}</span>
+                    </div>       
+                    <div class="cart-quantity cart-column">
+                        <span class="cart-quantity-input">${quantities[index]}</span>
+                    </div>
+                    <span class="cart-price cart-column">${item.price}</span>-->
+                    <div class="money-details">
+                        <div id="delivery-fee" style="display:none;">Delivery Fee: $<span id="fee-amount"></span></div>
+                        <div id="total">Total: $0</div> 
+                        <div id="totalDiscount">Saved: $0</div>                  
+                    </div>                       
+                
+            </div>
+            
+        </div>
+
+        <div class="delivery-form">
+            <h2>Pick-up or Delivery</h2>
+            <img id="area-image" src="e:\Fusion Firewood\homebase.jpg">
+            <div class="delivery-option">
+                <label for="delivery-method">Delivery Option:</label>
+                <select id="delivery-method" onchange="toggleAreaSelection()">
+                    <option value="pickup">Pick-Up</option>
+                    <option value="delivery">Delivery</option>
+                </select><br><br>
+                <div id="delivery-area" class="delivery-area" style="display:none;">
+                    <form id="delivery-form">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">city/town</label>
+                            <select id="area" onchange="updateDeliveryDetails()">
+                                <option value="area0">--Select--</option>
+                                <option value="area1">Aaronsburg</option>
+                                <option value="area2">Abdera</option>
+                                <option value="area3">Airydale</option>
+                                <option value="area4">Alexander Springs</option>
+                                <option value="area5">Alexandria</option>
+                                <option value="area6">Alfarata</option>
+                                <option value="area7">Allensville</option>
+                                <option value="area8">Allport</option>
+                                <option value="area9">Almaden</option>
+                                <option value="area10">Amesville</option>
+                                <option value="area11">Anderson</option>
+                                <option value="area12">Arch Spring</option>
+                                <option value="area13">Axemann</option>
+                                <option value="area14">Baileyville</option>
+                                <option value="area15">Bald Eagle</option>
+                                <option value="area16">Bald Hill</option>
+                                <option value="area17">Bannerville</option>
+                                <option value="area18">Barree</option>
+                                <option value="area19">Barrett</option>
+                                <option value="area20">Barrville</option>
+                                <option value="area21">Bear Swamp</option>
+                                <option value="area22">Beaver Mills</option>
+                                <option value="area23">Beaverdam</option>
+                                <option value="area24">Beavertown</option>
+                                <option value="area25">Beech Creek</option>
+                                <option value="area26">Belford</option>
+                                <option value="area27">Bellefonte</option>
+                                <option value="area28">Belleville</option>
+                                <option value="area29">Belltown</option>
+                                <option value="area30">Betz</option>
+                                <option value="area31">Beulah</option>
+                                <option value="area32">Big Spring</option>
+                                <option value="area33">Bigler</option>
+                                <option value="area34">Birch</option>
+                                <option value="area35">Birmingham</option>
+                                <option value="area36">Bishtown</option>
+                                <option value="area37">Bitumen</option>
+                                <option value="area38">Blairfour</option>
+                                <option value="area39">Blanchard</option>
+                                <option value="area40">Bloomsdorf</option>
+                                <option value="area41">Boalsburg</option>
+                                <option value="area42">Booker</option>
+                                <option value="area43">Booneville</option>
+                                <option value="area44">Briarly</option>
+                                <option value="area45">Brisbin</option>
+                                <option value="area46">Buffalo Run</option>
+                                <option value="area47">Burly</option>
+                                <option value="area48">Burnham</option>
+                                <option value="area49">Bush Addition</option>
+                                <option value="area50">Butts</option>
+                                <option value="area51">Camp Hironimus</option>
+                                <option value="area52">Casanova</option>
+                                <option value="area53">Castanea</option>
+                                <option value="area54">Cedar Hill</option>
+                                <option value="area55">Cedar Springs</option>
+                                <option value="area56">Center Union</option>
+                                <option value="area57">Centre Hall</option>
+                                <option value="area58">Centre Hill</option>
+                                <option value="area59">Charlottsville</option>
+                                <option value="area60">Charteroak</option>
+                                <option value="area61">Cherry Run</option>
+                                <option value="area62">Chester Hill</option>
+                                <option value="area63">Circle Ville</option>
+                                <option value="area64">Clarence</option>
+                                <option value="area65">Clearfield Junction</option>
+                                <option value="area66">Clintondale</option>
+                                <option value="area67">Coburn</option>
+                                <option value="area68">Colerain</option>
+                                <option value="area69">Coleville</option>
+                                <option value="area70">Colyer</option>
+                                <option value="area71">Congress Hill</option>
+                                <option value="area72">Cooks Run</option>
+                                <option value="area73">Cooper Settlement</option>
+                                <option value="area74">Cottage</option>
+                                <option value="area75">Coudley</option>
+                                <option value="area76">Croft</option>
+                                <option value="area77">Culp</option>
+                                <option value="area78">Curtin</option>
+                                <option value="area79">Dale Summit</option>
+                                <option value="area80">Dalevue</option>
+                                <option value="area81">Decatur</option>
+                                <option value="area82">Decaturville</option>
+                                <option value="area83">Donation</option>
+                                <option value="area84">Draketown</option>
+                                <option value="area85">Drane</option>
+                                <option value="area86">Drifting</option>
+                                <option value="area87">Dry Top</option>
+                                <option value="area88">Dungarvin</option>
+                                <option value="area89">Dunnstown</option>
+                                <option value="area90">Eagleton Fields</option>
+                                <option value="area91">Earnestville</option>
+                                <option value="area92">East Beech</option>
+                                <option value="area93">East Ferney</option>
+                                <option value="area94">Edendale</option>
+                                <option value="area95">Egypt</option>
+                                <option value="area96">Ennisville</option>
+                                <option value="area97">Eyer</option>
+                                <option value="area98">Fairbrook</option>
+                                <option value="area99">Farmers Mills</option>
+                                <option value="area100">Farrandsville</option>
+                                <option value="area101">Faunce</option>
+                                <option value="area102">Ferney</option>
+                                <option value="area103">Fetzertown</option>
+                                <option value="area104">Fiedler</option>
+                                <option value="area105">Fillmore</option>
+                                <option value="area106">Fishermans Paradise</option>
+                                <option value="area107">Flat Rock</option>
+                                <option value="area108">Flemington</option>
+                                <option value="area109">Forest</option>
+                                <option value="area110">Franklinville</option>
+                                <option value="area111">Frenchville</option>
+                                <option value="area112">Fruittown</option>
+                                <option value="area113">Gallows Harbor</option>
+                                <option value="area114">Gardner</option>
+                                <option value="area115">Gatesburg</option>
+                                <option value="area116">Gearhartville</option>
+                                <option value="area117">German Settlement</option>
+                                <option value="area118">Gillingham</option>
+                                <option value="area119">Gillintown</option>
+                                <option value="area120">Ginter</option>
+                                <option value="area121">Glass City</option>
+                                <option value="area122">Glen Union</option>
+                                <option value="area123">Golden Rod Farms</option>
+                                <option value="area124">Gorton</option>
+                                <option value="area125">Goss Run Junction</option>
+                                <option value="area126">Graham</option>
+                                <option value="area127">Granville</option>
+                                <option value="area128">Grassflat</option>
+                                <option value="area129">Grazierville</option>
+                                <option value="area130">Green Grove</option>
+                                <option value="area131">Greenburr</option>
+                                <option value="area132">Guenot Settlement</option>
+                                <option value="area133">Gum Stump</option>
+                                <option value="area134">Hale</option>
+                                <option value="area135">Hannah</option>
+                                <option value="area136">Harris Acres</option>
+                                <option value="area137">Hawk Run</option>
+                                <option value="area138">Hawstone</option>
+                                <option value="area139">Honey</option>
+                                <option value="area140">Honey Creek</option>
+                                <option value="area141">Horningford</option>
+                                <option value="area142">Houserville</option>
+                                <option value="area143">Houtzdale</option>
+                                <option value="area144">Howard</option>
+                                <option value="area145">Hublersburg</option>
+                                <option value="area146">Huckenberry</option>
+                                <option value="area147">Hunter Park</option>
+                                <option value="area148">Huntingdon</option>
+                                <option value="area149">Huntingdon Furnace</option>
+                                <option value="area150">Ingleby</option>
+                                <option value="area151">Jackson Corner</option>
+                                <option value="area152">Jeffries</option>
+                                <option value="area153">Julian</option>
+                                <option value="area154">Juniata Terrace</option>
+                                <option value="area155">Karthaus</option>
+                                <option value="area156">Kato</option>
+                                <option value="area157">Keating</option>
+                                <option value="area158">Keewaydin</option>
+                                <option value="area159">Kendrick</option>
+                                <option value="area160">Kishacoquillas</option>
+                                <option value="area161">Klondyke</option>
+                                <option value="area162">Knobville</option>
+                                <option value="area163">Krebs</option>
+                                <option value="area164">Krumrine</option>
+                                <option value="area165">Kylertown</option>
+                                <option value="area166">Lamar</option>
+                                <option value="area167">Lanse</option>
+                                <option value="area168">Lecontes Mills</option>
+                                <option value="area169">Lemont</option>
+                                <option value="area170">Leonard</option>
+                                <option value="area171">Lewistown</option>
+                                <option value="area172">Lewistown Junction</option>
+                                <option value="area173">Linden Hall</option>
+                                <option value="area174">Little Kansas</option>
+                                <option value="area175">Loch Lomond Junction</option>
+                                <option value="area176">Lock Haven</option>
+                                <option value="area177">Locke Mills</option>
+                                <option value="area178">Lockport</option>
+                                <option value="area179">Logan Mills</option>
+                                <option value="area180">Longfellow</option>
+                                <option value="area181">Lyonstown</option>
+                                <option value="area182">Macedonia</option>
+                                <option value="area183">Mackeyville</option>
+                                <option value="area184">Madera</option>
+                                <option value="area185">Madisonburg</option>
+                                <option value="area186">Maitland</option>
+                                <option value="area187">Manor Hill</option>
+                                <option value="area188">Marengo</option>
+                                <option value="area189">Martha Furnace</option>
+                                <option value="area190">Masseyburg</option>
+                                <option value="area191">Mattawana</option>
+                                <option value="area192">Matternville</option>
+                                <option value="area193">McAlevys Fort</option>
+                                <option value="area194">McVeytown</option>
+                                <option value="area195">Menno</option>
+                                <option value="area196">Milesburg</option>
+                                <option value="area197">Mill Hall</option>
+                                <option value="area198">Millheim</option>
+                                <option value="area199">Milroy</option>
+                                <option value="area200">Mineral Springs</option>
+                                <option value="area201">Mingoville</option>
+                                <option value="area202">Monroe Furnace</option>
+                                <option value="area203">Monument</option>
+                                <option value="area204">Mooresville</option>
+                                <option value="area205">Morann</option>
+                                <option value="area206">Morrisdale</option>
+                                <option value="area207">Moshannon</option>
+                                <option value="area208">Mount Eagle</option>
+                                <option value="area209">Munson</option>
+                                <option value="area210">Musellmans Crossing</option>
+                                <option value="area211">Musser</option>
+                                <option value="area212">Naginey</option>
+                                <option value="area213">Nealmont</option>
+                                <option value="area214">Needful</option>
+                                <option value="area215">Neff</option>
+                                <option value="area216">Neffs Mills</option>
+                                <option value="area217">New Liberty</option>
+                                <option value="area218">New Town</option>
+                                <option value="area219">Nittany</option>
+                                <option value="area220">North Philipsburg</option>
+                                <option value="area221">Northwood</option>
+                                <option value="area222">Oak Hall</option>
+                                <option value="area223">Old Fort</option>
+                                <option value="area224">Old Side</option>
+                                <option value="area225">Orviston</option>
+                                <option value="area226">Osceola Mills</option>
+                                <option value="area227">Overlook Heights</option>
+                                <option value="area228">Paintersville</option>
+                                <option value="area229">Palestine</option>
+                                <option value="area230">Pancake</option>
+                                <option value="area231">Panorama Village</option>
+                                <option value="area232">Panther</option>
+                                <option value="area233">Pardee</option>
+                                <option value="area234">Park Forest Village</option>
+                                <option value="area235">Park Hills</option>
+                                <option value="area236">Park View Heights</option>
+                                <option value="area237">Parsonsville</option>
+                                <option value="area238">Parvin</option>
+                                <option value="area239">Peale</option>
+                                <option value="area240">Pemberton</option>
+                                <option value="area241">Penn Five</option>
+                                <option value="area242">Penn Hall</option>
+                                <option value="area243">Penn View</option>
+                                <option value="area244">Pennington</option>
+                                <option value="area245">Pennsylvania Furnace</option>
+                                <option value="area246">Peru</option>
+                                <option value="area247">Petersburg</option>
+                                <option value="area248">Philipsburg</option>
+                                <option value="area249">Pine Glen</option>
+                                <option value="area250">Pine Grove Mills</option>
+                                <option value="area251">Pine Hall</option>
+                                <option value="area252">Pine Top</option>
+                                <option value="area253">Piper</option>
+                                <option value="area254">Pleasant Gap</option>
+                                <option value="area255">Poorman Side</option>
+                                <option value="area256">Port Matilda</option>
+                                <option value="area257">Potters Mills</option>
+                                <option value="area258">Pottersdale</option>
+                                <option value="area259">Queens Run</option>
+                                <option value="area260">Ramblewood</option>
+                                <option value="area261">Ramey</option>
+                                <option value="area262">Rebersburg</option>
+                                <option value="area263">Reedsville</option>
+                                <option value="area264">Rhoads</option>
+                                <option value="area265">Ribot</option>
+                                <option value="area266">Ridgemont</option>
+                                <option value="area267">Rockspring</option>
+                                <option value="area268">Rolling Stone</option>
+                                <option value="area269">Romola</option>
+                                <option value="area270">Roseann</option>
+                                <option value="area221">Rote</option>
+                                <option value="area272">Runville</option>
+                                <option value="area273">Salona</option>
+                                <option value="area274">Sanborn</option>
+                                <option value="area275">Sandy Ridge</option>
+                                <option value="area276">Saulsburg</option>
+                                <option value="area277">Schracktown</option>
+                                <option value="area278">Scotch Hollow</option>
+                                <option value="area279">Scotia</option>
+                                <option value="area280">Seeger Place</option>
+                                <option value="area281">Shaffersville</option>
+                                <option value="area282">Shawnee</option>
+                                <option value="area283">Shawville</option>
+                                <option value="area284">Shettleston</option>
+                                <option value="area285">Shindle</option>
+                                <option value="area286">Shingletown</option>
+                                <option value="area287">Shintown</option>
+                                <option value="area288">Shoenberger</option>
+                                <option value="area289">Shrader</option>
+                                <option value="area290">Siglerville</option>
+                                <option value="area291">Skelp</option>
+                                <option value="area292">Smoke Run</option>
+                                <option value="area293">Smullton</option>
+                                <option value="area294">Snook</option>
+                                <option value="area295">Snow Shoe</option>
+                                <option value="area296">Soradoville</option>
+                                <option value="area297">South Philipsburg</option>
+                                <option value="area298">Spike Island</option>
+                                <option value="area299">Spring Bank</option>
+                                <option value="area300">Spring Mills</option>
+                                <option value="area301">Spruce</option>
+                                <option value="area302">Spruce Creek</option>
+                                <option value="area303">State College</option>
+                                <option value="area304">Stormstown</option>
+                                <option value="area305">Stover</option>
+                                <option value="area306">Strodes Mills</option>
+                                <option value="area307">Struble</option>
+                                <option value="area308">Stumptown</option>
+                                <option value="area309">Sunset Pines</option>
+                                <option value="area310">Surveyor</option>
+                                <option value="area311">Sylvan Grove</option>
+                                <option value="area312">Taylor Highlands</option>
+                                <option value="area313">Tipton</option>
+                                <option value="area314">Tusseyville</option>
+                                <option value="area315">Twin Hollows</option>
+                                <option value="area316">Tylersville</option>
+                                <option value="area317">Tyrone</option>
+                                <option value="area318">Tyrone Forge</option>
+                                <option value="area319">Union Furnace</option>
+                                <option value="area320">Union Mills</option>
+                                <option value="area321">University Park</option>
+                                <option value="area322">Vail</option>
+                                <option value="area323">Victor</option>
+                                <option value="area324">Viola</option>
+                                <option value="area325">Vira</option>
+                                <option value="area326">Waddle</option>
+                                <option value="area327">Wagner</option>
+                                <option value="area328">Wallaceton</option>
+                                <option value="area329">Walton</option>
+                                <option value="area330">Waltzvale</option>
+                                <option value="area331">Warrior Ridge</option>
+                                <option value="area332">Warriors Mark</option>
+                                <option value="area333">Water Street</option>
+                                <option value="area334">West Beech</option>
+                                <option value="area335">West Decatur</option>
+                                <option value="area336">West Moshannon</option>
+                                <option value="area337">Westport</option>
+                                <option value="area338">Whetham</option>
+                                <option value="area339">Whiteside</option>
+                                <option value="area340">Winburne</option>
+                                <option value="area341">Wingate</option>
+                                <option value="area342">Wolfs Store</option>
+                                <option value="area343">Woodland</option>
+                                <option value="area344">Woodward</option>
+                                <option value="area345">Yarnell</option>
+                                <option value="area346">Yeagertown</option>
+                                <option value="area347">Zerby</option>
+                                <option value="area348">Zion</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="xx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="area-code">Area Code</label>
+                            <input type="text" id="area-code" name="area-code" placeholder="xxxxx" required><br><br>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="purchase-container">
+        <div class="purchased-items">
+            <div class="payment-table">
+                <table>
+                    <tr>
+                        <th class="th1">Debit</th>
+                        <th>Credit</th>
+                        <th class="th2">Venmo</th>
+                    </tr>
+                </table>
+                <div class="payment-form">
+                    <h2>Payment Information</h2>
+                        <form id="payment-form">
+                        <label for="name">Name on Card:</label>
+                        <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="xxxx xxxx xxxx xxxx" required><br><br>
+
+                        <label for="exp-date">Expiration Date:</label>
+                        <input type="text" id="exp-date" name="exp-date" placeholder="MM/YY" required><br><br>
+
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="xxx" required><br><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+
+                        <button type="submit" class="btn-submit">Submit Purchase</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+            <script src="purchase.js"></script>
+
+    <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Coming soon</h3>
+                    <p>Downloadable app for IOS and Adroid</p>
+                </div>
+                <div class="footer-col-2">
+                    <img src="e:\Fusion Firewood\Fiverr Premium Kit\Fiverr Premium Kit\PNG Logo Files\Original Logo Symbol.png">
+                    <p>Our purpose is to deliver <br>firewood quick and efficiently!</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Follow us on:</h3>
+                    <ul>
+                        <li>FaceBook</li>
+                        <li>Instagram</li>
+                        <li>X (Twitter)</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2024 - CopWire</p>
+        </div>   
+    </div>
+    <!--js for toggle menu-->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else
+            {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+    </script>
+</body>
+</html>
+
